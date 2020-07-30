@@ -19,12 +19,10 @@ export class Exercice1EnfantComponent implements OnInit {
   }
 
   increment(): void {
-    console.log('increment');
     this.changeValue.emit(1);
   }
 
   decrement(): void {
-    console.log('decrement');
     this.changeValue.emit(-1);
   }
 }
