@@ -1,4 +1,4 @@
-import { Component, ViewChild,  ElementRef } from '@angular/core';
+import { Component, ViewChild,  ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-exercice2',
@@ -7,14 +7,22 @@ import { Component, ViewChild,  ElementRef } from '@angular/core';
 })
 export class Exercice2Component {
 
-@ViewChild('myInput') public inputElement: ElementRef;
+@ViewChild('myInput', {static: true}) public inputElement: ElementRef;
 
   public valeur: string;
 
   constructor() { }
 
-  txtChange(event: any): void {
+  inputValueChange(event: any): void {
     this.valeur = this.inputElement.nativeElement.value;
    }
+
+/*
+  // !! executée aussi lors d'input sur les autres composants (exercice1Componant)
+  ngDoCheck(): void {
+    console.log('ngDoCheck in Exercice2Component');
+    this.valeur = this.inputElement.nativeElement.value;
+  }
+*/
 
 }
